@@ -32,8 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username'], $_POST['pa
     
     // Execute the statement
     if (sqlsrv_execute($stmt)) {
-        echo "User registered successfully.";
-        // Redirect to login page
         header("Location: login.html");
     } else {
         echo "Error registering user.";
