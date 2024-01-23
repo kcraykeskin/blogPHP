@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a0a;
+    color: #c7c7c7;
+    background-image: url('http://localhost/blog/background.jpg'); /* Add your image path here */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+
+.form-container {
+    width: 50%; /* Adjust width as needed */
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(18, 18, 18, 0.8); /* Semi-transparent background */
+    border: 1px solid #ff2ecc;
+    box-shadow: 0 0 15px #ff2ecc;
+    border-radius: 10px;
+}
+
+
+
+/* Navigation Bar Styles */
+.navbar {
+    overflow: hidden;
+    background-color: #1a1a1a;
+    position: sticky;
+    top: 0;
+    border-bottom: 2px solid #ff2ecc;
+}
+
+    .navbar a {
+        float: left;
+        display: block;
+        color: #ff2ecc;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .navbar a:hover {
+            background-color: #ff2ecc;
+            color: #0a0a0a;
+        }
+
+/* Rest of the styles */
+#postContainer {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #121212;
+    padding: 20px;
+    border: 1px solid #ff2ecc;
+    box-shadow: 0 0 15px #ff2ecc;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #ff2ecc;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    background-color: #1a1a1a;
+    color: #c7c7c7;
+    border: 1px solid #ff2ecc;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+.comment {
+    background-color: #1a1a1a;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 3px solid #ff2ecc;
+}
+
+.post {
+    margin-bottom: 40px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #ff2ecc; /* Vibrant neon color */
+    color: #0a0a0a; /* Dark text for contrast */
+    border: 2px solid #c7c7c7; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+    input[type="submit"]:hover, input[type="submit"]:focus {
+        background-color: #c7c7c7; /* Lighter color on hover/focus */
+        color: #ff2ecc; /* Neon text color */
+        transform: scale(1.05); /* Slightly larger on hover/focus */
+    }
+
+/* Button Style */
+.button {
+    padding: 10px 20px;
+    background-color: #ff2ecc; /* Neon pink background */
+    color: #0a0a0a; /* Dark text */
+    border: 2px solid #c7c7c7;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+}
+
+    .button:hover, .button:focus {
+        background-color: #c7c7c7;
+        color: #ff2ecc;
+        transform: scale(1.05);
+    }

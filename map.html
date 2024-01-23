@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="blog.html">Blog Posts</a>
+        <a href="contact.html">Contact</a>
+        <a href="map.html">Map</a>
+        <a href="admin_login.html">Admin Login</a>
+    </div>
+
+    <h2>Map Application</h2>
+    <div id="map"></div>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+        var map = L.map('map').setView([41.0082, 28.9784], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '� OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Function to get weather data
+        function getWeather(lat, lon) {
+            var apiKey = '68e95433c1114a5b80219e9f9e50f190'; // Replace with your OpenWeatherMap API key
+            var url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    alert(`Weather in ${data.name}: ${data.main.temp}�C, ${data.weather[0].description}`);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Event listener for map click
+        map.on('click', function (e) {
+            getWeather(e.latlng.lat, e.latlng.lng);
+        });
+    </script>
+</body>
+</html>

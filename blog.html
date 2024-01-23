@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Posts</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+        // Function to load all blog posts and their comments
+        function loadPosts() {
+            // Make an AJAX request to get all blog posts
+            fetch('blog_post.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('postContainer').innerHTML = data;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Function to submit a comment
+        function submitComment(event) {
+            event.preventDefault();
+            var formData = new FormData(event.target);
+
+            // Make an AJAX request to submit the comment
+            fetch('submit_comment.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.text())
+                .then(data => {
+                    // Reload the posts and comments
+                    loadPosts();
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Call the function to load all posts when the page loads
+        window.onload = function () {
+            loadPosts();
+        };
+    </script>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="blog.html">Blog Posts</a>
+        <a href="contact.html">Contact</a>
+        <a href="map.html">Map</a>
+        <a href="admin_login.html">Admin Login</a>
+    </div>
+
+    <!-- Blog Post Container -->
+    <div id="postContainer">
+        <!-- Blog posts and comments will be loaded here dynamically -->
+    </div>
+</body>
+</html>

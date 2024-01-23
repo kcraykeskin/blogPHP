@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="blog.html">Blog Posts</a>
+        <a href="contact.html">Contact</a>
+        <a href="map.html">Map</a>
+        <a href="admin_login.html">Admin Login</a>
+    </div>
+
+    <div class="form-container">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" name="surname" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="question">Your Question:</label>
+            <textarea id="question" name="question" required></textarea><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Collect form data
+            var formData = new FormData(this);
+
+            // Send the data to submit_contact.php
+            fetch('submit_contact.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.text())
+                .then(data => {
+                    // Show a popup message
+                    alert("Your message has been received. Thank you for contacting us!");
+                    // Optionally, reset the form
+                    // this.reset();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+</html>
