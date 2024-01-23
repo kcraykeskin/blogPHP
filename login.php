@@ -30,8 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username'], $_POST['pa
         if ($user = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
             // Verify the password
             if (password_verify($password, $user['password'])) {
-                echo "Login successful!";
-                // Redirect to blog page
                 header("Location: blog.html");
             } else {
                 echo "Invalid username or password.";
